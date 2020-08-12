@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
           display.innerText = displayData;
         }
         catch (e) {
-          display.innerText = 'Syntax Error!';
+          display.innerText = 'Math Error!';
           displayData = "";
         }
         return displayData;
