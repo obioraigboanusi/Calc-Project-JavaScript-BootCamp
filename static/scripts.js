@@ -1,13 +1,12 @@
 document.addEventListener('DOMContentLoaded', function () {
   'use strict'
   const display = document.querySelector('#screen>p');
-  let displayData;
+  let displayData='0';
   let btn = document.querySelectorAll('li');
   btn.forEach(btn => {
     btn.addEventListener('click', () => {
       const numberValue = btn.getAttribute('data-number');
       const btnText = btn.innerText;
-      console.log(btnText)
       if (btn.hasAttribute('data-number')) {
         if (display.innerText != '0') {
           displayData += numberValue;
@@ -24,18 +23,17 @@ document.addEventListener('DOMContentLoaded', function () {
         return displayData;
       } else if (btn.hasAttribute('data-operator')) {
         const operatorValue = btn.getAttribute('data-operator');
-        console.log(`Operator ${operatorValue} was clicked`)
         displayData += operatorValue;
         display.innerText = displayData;
         return displayData;
-      } else if (btn.hasAttribute('data-equals')) {
+      } else if (btn.hasAttribute('data-equals')){
         try {
           displayData = eval(displayData);
           display.innerText = displayData;
         }
         catch (e) {
           display.innerText = 'Syntax Error!';
-          displayData = ""
+          displayData = "";
         }
         return displayData;
       } else {
