@@ -1,5 +1,5 @@
 const staticCalculator = "Calculator-Project-v1";
-const assets = [
+const files = [
   "/",
   "/index.html",
   "/static/styles.css",
@@ -16,7 +16,7 @@ const assets = [
 self.addEventListener("install", installEvent => {
   installEvent.waitUntil(
     caches.open(staticCalculator).then(cache => {
-      cache.addAll(assets);
+      cache.addAll(files);
     })
   );
 });
