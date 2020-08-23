@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
   'use strict'
   const display = document.querySelector('#screen>p');
-  let displayData='0';
+  let displayData = '0';
   let btn = document.querySelectorAll('li');
   btn.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -26,9 +26,9 @@ document.addEventListener('DOMContentLoaded', function () {
         displayData += operatorValue;
         display.innerText = displayData;
         return displayData;
-      } else if (btn.hasAttribute('data-equals')){
+      } else if (btn.hasAttribute('data-equals')) {
         try {
-          displayData = eval(displayData);
+          displayData =new Function('return ' + displayData)();
           display.innerText = displayData;
         }
         catch (e) {
@@ -46,4 +46,4 @@ document.addEventListener('DOMContentLoaded', function () {
     displayData = '0';
     display.textContent = displayData;
   })
-})
+});
