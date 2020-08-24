@@ -45,5 +45,12 @@ document.addEventListener('DOMContentLoaded', function () {
   clearBtn.addEventListener('click', () => {
     displayData = '0';
     display.textContent = displayData;
-  })
+  });
+
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js').then(function (registeration) {
+      console.log("service worker registered");
+    })
+  };
 });
+
